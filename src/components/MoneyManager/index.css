@@ -1,0 +1,47 @@
+/* Write your CSS here */
+
+.container {
+  padding: 20px;
+}
+
+.name-card {
+  padding: 40px;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/money-manager/money-manager-bg.png');
+  height: 25vh;
+  background-size: cover;
+  border-radius: 30px;
+}
+
+.bottom-card {
+  display: flex;
+}
+
+.side-card {
+  background-color: aqua;
+  padding: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-card {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  background-color: aqua;
+  border-radius: 20px;
+  margin-top: 20px;
+  height: 50vh;
+  width: 100%;
+  padding: 20px;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}

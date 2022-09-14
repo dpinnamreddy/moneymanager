@@ -1,0 +1,22 @@
+/* Write your CSS here */
+
+.icon {
+  height: 50px;
+}
+
+.summary-card {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.summary {
+  width: 25vw;
+  height: 15vh;
+  background-color: aquamarine;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
