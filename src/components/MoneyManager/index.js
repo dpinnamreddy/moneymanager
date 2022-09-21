@@ -31,7 +31,7 @@ class MoneyManger extends Component {
   }
 
   updateAmount = e => {
-    this.setState({amount: e.target.value})
+    this.setState({amount: parseInt(e.target.value)})
   }
 
   updateType = e => {
@@ -47,14 +47,16 @@ class MoneyManger extends Component {
       amount,
       type,
     }
-    const addAm = type === 'Income' ? amount : -amount
+    const addAm = type === 'Income' ? parseInt(amount) : -parseInt(amount)
     this.setState(prevState => ({
       historyList: [...prevState.historyList, newState],
       title: '',
       amount: '',
       type: 'Income',
-      balance: parseInt(prevState.balance + addAm),
-      income: parseInt(prevState.income + (type === 'Income' ? amount : 0)),
+      balance: parseInt(prevState.balance) + parseInt(addAm),
+      income:
+        parseInt(prevState.income) +
+        parseInt(type === 'Income' ? parseInt(amount) : 0),
     }))
   }
 
@@ -66,10 +68,12 @@ class MoneyManger extends Component {
       const ty = toDelTrans[0].type
       const amt = toDelTrans[0].amount
       const addAm = ty === 'Income' ? -amt : +amt
+      console.log(ty === 'Income' ? -parseInt(amt) : 0)
       return {
         historyList: prevState.historyList.filter(history => history.id !== id),
-        balance: prevState.balance + addAm,
-        income: prevState.income + ty === 'Income' ? -amt : 0,
+        balance: parseInt(prevState.balance) + parseInt(addAm),
+        income:
+          parseInt(prevState.income) + (ty === 'Income' ? -parseInt(amt) : 0),
       }
     })
   }
@@ -122,7 +126,10 @@ class MoneyManger extends Component {
                 value={type}
               >
                 {transactionTypeOptions.map(transactionType => (
-                  <option value={transactionType.optionId}>
+                  <option
+                    value={transactionType.optionId}
+                    key={transactionType.optionId}
+                  >
                     {transactionType.displayText}
                   </option>
                 ))}
